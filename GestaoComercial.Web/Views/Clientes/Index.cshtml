@@ -1,0 +1,53 @@
+﻿@model IEnumerable<GestaoComercial.Web.Models.Cliente>
+
+@{
+    ViewBag.Title = "Lista de Clientes";
+}
+
+<h2>Lista de Clientes</h2>
+<p>
+    <a href="@Url.Action("Create", "Clientes")" class="btn btn-default">Novo Cliente</a>
+</p>
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeCliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeCompletoRazaoSocial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApelidoNomeFantasia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CPFCNPJ)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeCliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeCompletoRazaoSocial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApelidoNomeFantasia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CPFCNPJ)
+        </td>
+        <td>
+            <a href="@Url.Action("Edit", "Clientes", new { id = item.Id })">Editar</a>  
+            <a href="@Url.Action("Details", "Clientes", new { id=item.Id })">Detalhes</a>  
+            <a href="@Url.Action("Delete", "Clientes", new { id = item.Id })">Deletar</a> 
+        </td>
+
+    </tr>
+
+}
+
+</table>
+
